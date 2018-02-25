@@ -1,0 +1,25 @@
+---
+dist: trusty
+
+matrix:
+  fast_finish: true
+
+services:
+  - docker
+
+install: true
+
+script:
+  - docker build -t naftulikay/circleci-awscli .
+
+deploy:
+  - provider: script
+    script: |
+      curl -sSL -i -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/naftulikay/circleci-awscli/trigger/dacb5404-6dca-404b-b86d-b7ce0576ae54/
+    on:
+      branch: master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
