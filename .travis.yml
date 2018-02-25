@@ -15,7 +15,7 @@ script:
 deploy:
   - provider: script
     script: |
-      curl -sSL -i -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/naftulikay/circleci-awscli/trigger/dacb5404-6dca-404b-b86d-b7ce0576ae54/
+      curl -sSL -i -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/naftulikay/circleci-awscli/trigger/4027a1ac-ca6b-449d-8a3d-eda2af489191/
     on:
       branch: master
 
